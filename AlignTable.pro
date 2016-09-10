@@ -13,8 +13,12 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    columnalignedlayout.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    columnalignedlayout.h
 
 FORMS    += mainwindow.ui
+
+CONFIG += c++11
