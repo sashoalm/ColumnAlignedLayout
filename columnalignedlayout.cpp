@@ -34,7 +34,7 @@ void ColumnAlignedLayout::setGeometry(const QRect &r)
     int delta = headerX - widgetX;
 
     for (int ii = 0; ii < headerView->count(); ++ii) {
-        int pos = headerView->sectionPosition(ii);
+        int pos = headerView->sectionViewportPosition(ii);
         int size = headerView->sectionSize(ii);
 
         auto item = itemAt(ii);
