@@ -17,25 +17,25 @@ void ColumnAlignedLayout::setGeometry(const QRect &r)
 {
     QHBoxLayout::setGeometry(r);
 
-    Q_ASSERT_X(columns, "layout", "no table columns to track");
-    if (!columns) {
+    Q_ASSERT_X(headerView, "layout", "no table columns to track");
+    if (!headerView) {
         return;
     }
 
-    Q_ASSERT_X(columns->count() == count(), "layout", "there must be as many items in the layout as there are columns in the table");
-    if (columns->count() != count()) {
+    Q_ASSERT_X(headerView->count() == count(), "layout", "there must be as many items in the layout as there are columns in the table");
+    if (headerView->count() != count()) {
         return;
     }
 
     Q_ASSERT(parentWidget());
 
     int widgetX = parentWidget()->mapToGlobal(QPoint(0, 0)).x();
-    int headerX = columns->mapToGlobal(QPoint(0, 0)).x();
+    int headerX = headerView->mapToGlobal(QPoint(0, 0)).x();
     int delta = headerX - widgetX;
 
-    for (int ii = 0; ii < columns->count(); ++ii) {
-        int pos = columns->sectionPosition(ii);
-        int size = columns->sectionSize(ii);
+    for (int ii = 0; ii < headerView->count(); ++ii) {
+        int pos = headerView->sectionPosition(ii);
+        int size = headerView->sectionSize(ii);
 
         auto item = itemAt(ii);
         auto r = item->geometry();

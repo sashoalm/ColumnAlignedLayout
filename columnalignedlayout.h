@@ -11,7 +11,7 @@ class ColumnAlignedLayout : public QHBoxLayout
 public:
     ColumnAlignedLayout();
     explicit ColumnAlignedLayout(QWidget *parent);
-    void setTableColumnsToTrack(QHeaderView *view) { columns = view; }
+    void setTableColumnsToTrack(QHeaderView *view) { headerView = view; }
 
 signals:
 
@@ -19,7 +19,7 @@ public slots:
 
 private:
     void setGeometry(const QRect &r);
-    QHeaderView *columns;
+    QHeaderView *headerView;
 };
 
 #endif // COLUMNALIGNEDLAYOUT_H
