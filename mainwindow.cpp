@@ -3,6 +3,7 @@
 #include "ui_mainwindow.h"
 
 #include <QLineEdit>
+#include <QScrollBar>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -17,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
     alignedLayout->setTableColumnsToTrack(ui->tableWidget->horizontalHeader());
     alignedLayout->setParent(ui->verticalLayout);
     connect(ui->tableWidget->horizontalHeader(), SIGNAL(sectionResized(int,int,int)), SLOT(invalidateAlignedLayout()));
+    connect(ui->tableWidget->horizontalScrollBar(), SIGNAL(valueChanged(int)), SLOT(invalidateAlignedLayout()));
 }
 
 MainWindow::~MainWindow()
