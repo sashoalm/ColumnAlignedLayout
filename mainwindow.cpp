@@ -14,6 +14,8 @@ MainWindow::MainWindow(QWidget *parent) :
     alignedLayout = new ColumnAlignedLayout();
     alignedLayout->addWidget(new QLineEdit(this));
     alignedLayout->addWidget(new QLineEdit(this));
+    alignedLayout->addWidget(new QLineEdit(this));
+    alignedLayout->addWidget(new QLineEdit(this));
     ui->widget->setLayout(alignedLayout);
     alignedLayout->setTableColumnsToTrack(ui->tableWidget->horizontalHeader());
     alignedLayout->setParent(ui->widget);
