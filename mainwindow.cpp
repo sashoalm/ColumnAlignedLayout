@@ -14,9 +14,9 @@ MainWindow::MainWindow(QWidget *parent) :
     alignedLayout = new ColumnAlignedLayout();
     alignedLayout->addWidget(new QLineEdit(this));
     alignedLayout->addWidget(new QLineEdit(this));
-    ui->verticalLayout->insertItem(0, alignedLayout);
+    ui->widget->setLayout(alignedLayout);
     alignedLayout->setTableColumnsToTrack(ui->tableWidget->horizontalHeader());
-    alignedLayout->setParent(ui->verticalLayout);
+    alignedLayout->setParent(ui->widget);
     connect(ui->tableWidget->horizontalHeader(), SIGNAL(sectionResized(int,int,int)), SLOT(invalidateAlignedLayout()));
     connect(ui->tableWidget->horizontalScrollBar(), SIGNAL(valueChanged(int)), SLOT(invalidateAlignedLayout()));
 }
