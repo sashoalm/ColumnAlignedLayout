@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->verticalLayout->insertItem(0, alignedLayout);
     alignedLayout->setTableColumnsToTrack(ui->tableWidget->horizontalHeader());
     alignedLayout->setParent(ui->verticalLayout);
-    connect(ui->tableWidget->horizontalHeader(), SIGNAL(sectionResized(int,int,int)), SLOT(onTableColumnsResized(int,int,int)));
+    connect(ui->tableWidget->horizontalHeader(), SIGNAL(sectionResized(int,int,int)), SLOT(invalidateAlignedLayout()));
 }
 
 MainWindow::~MainWindow()
@@ -24,7 +24,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::onTableColumnsResized(int logicalIndex, int oldSize, int newSize)
+void MainWindow::invalidateAlignedLayout()
 {
     alignedLayout->invalidate();
 }

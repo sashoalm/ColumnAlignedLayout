@@ -18,7 +18,7 @@ public:
     ~MainWindow();
 
 private slots:
-    void onTableColumnsResized(int logicalIndex, int oldSize, int newSize);
+    void invalidateAlignedLayout();
 
 private:
     Ui::MainWindow *ui;
