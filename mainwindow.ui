@@ -16,34 +16,7 @@
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QWidget" name="widget" native="true"/>
-    </item>
-    <item>
-     <widget class="QTableWidget" name="tableWidget">
-      <property name="horizontalScrollMode">
-       <enum>QAbstractItemView::ScrollPerPixel</enum>
-      </property>
-      <column>
-       <property name="text">
-        <string>Col1</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Col2</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>New Column</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>New Column</string>
-       </property>
-      </column>
-     </widget>
+     <widget class="FilteredTableWidget" name="widget" native="true"/>
     </item>
    </layout>
   </widget>
@@ -68,6 +41,14 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>FilteredTableWidget</class>
+   <extends>QWidget</extends>
+   <header>filteredtablewidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

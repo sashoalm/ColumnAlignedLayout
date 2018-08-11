@@ -14,12 +14,15 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    columnalignedlayout.cpp
+    columnalignedlayout.cpp \
+    filteredtablewidget.cpp
 
 HEADERS  += mainwindow.h \
-    columnalignedlayout.h
+    columnalignedlayout.h \
+    filteredtablewidget.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    filteredtablewidget.ui
 
 CONFIG += c++11
 
