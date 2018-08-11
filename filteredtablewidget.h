@@ -22,6 +22,7 @@ public:
 
 private slots:
     void invalidateAlignedLayout();
+    void onSectionCountChanged(int oldCount, int newCount);
 
 private:
     Ui::FilteredTableWidget *ui;

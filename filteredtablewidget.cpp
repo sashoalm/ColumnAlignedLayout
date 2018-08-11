@@ -20,6 +20,7 @@ FilteredTableWidget::FilteredTableWidget(QWidget *parent) :
     alignedLayout->setParent(ui->widget);
     connect(ui->tableWidget->horizontalHeader(), SIGNAL(sectionResized(int,int,int)), SLOT(invalidateAlignedLayout()));
     connect(ui->tableWidget->horizontalScrollBar(), SIGNAL(valueChanged(int)), SLOT(invalidateAlignedLayout()));
+    connect(ui->tableWidget->horizontalHeader(), SIGNAL(sectionCountChanged(int,int)), SLOT(onSectionCountChanged(int,int)));
 }
 
 FilteredTableWidget::~FilteredTableWidget()
@@ -35,4 +36,19 @@ QTableWidget *FilteredTableWidget::tableWidget()
 void FilteredTableWidget::invalidateAlignedLayout()
 {
     alignedLayout->invalidate();
+}
+
+void FilteredTableWidget::onSectionCountChanged(int oldCount, int newCount)
+{
+    Q_UNUSED(oldCount);
+
+    while (alignedLayout->count() > newCount) {
+        QWidget *w = alignedLayout->itemAt(alignedLayout->count() - 1)->widget();
+        alignedLayout->removeWidget(w);
+        delete w;
+    }
+
+    while (alignedLayout->count() < newCount) {
+        alignedLayout->addWidget(new QLineEdit(this));
+    }
 }
