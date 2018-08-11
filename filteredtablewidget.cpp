@@ -27,6 +27,11 @@ FilteredTableWidget::~FilteredTableWidget()
     delete ui;
 }
 
+QTableWidget *FilteredTableWidget::tableWidget()
+{
+    return ui->tableWidget;
+}
+
 void FilteredTableWidget::invalidateAlignedLayout()
 {
     alignedLayout->invalidate();

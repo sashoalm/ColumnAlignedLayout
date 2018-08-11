@@ -2,6 +2,7 @@
 #define FILTEREDTABLEWIDGET_H
 
 class ColumnAlignedLayout;
+class QTableWidget;
 
 #include <QWidget>
 
@@ -16,6 +17,8 @@ class FilteredTableWidget : public QWidget
 public:
     explicit FilteredTableWidget(QWidget *parent = 0);
     ~FilteredTableWidget();
+
+    QTableWidget *tableWidget();
 
 private slots:
     void invalidateAlignedLayout();
