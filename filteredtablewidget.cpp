@@ -33,6 +33,11 @@ QTableWidget *FilteredTableWidget::tableWidget()
     return ui->tableWidget;
 }
 
+QLineEdit *FilteredTableWidget::columnFilter(int columnIndex)
+{
+    return (QLineEdit *) alignedLayout->itemAt(columnIndex)->widget();
+}
+
 void FilteredTableWidget::invalidateAlignedLayout()
 {
     alignedLayout->invalidate();

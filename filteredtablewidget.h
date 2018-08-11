@@ -3,6 +3,7 @@
 
 class ColumnAlignedLayout;
 class QTableWidget;
+class QLineEdit;
 
 #include <QWidget>
 
@@ -19,6 +20,7 @@ public:
     ~FilteredTableWidget();
 
     QTableWidget *tableWidget();
+    QLineEdit *columnFilter(int columnIndex);
 
 private slots:
     void invalidateAlignedLayout();
