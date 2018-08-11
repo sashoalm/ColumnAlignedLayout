@@ -25,4 +25,10 @@ And then in the slot call `invalidate()`:
         alignedLayout->invalidate();
     }
 
+# New - FilteredTableWidget
 
+There is also a sample widget called FilteredTableWidget which hosts a
+QTableWidget and the line edits on top of it which was the original use-case
+that prompted me to create this layout. This widget dynamically adds or removes
+line edits as columns are added or removed from the table and exposes the table
+and line edit widgets with public getters.
