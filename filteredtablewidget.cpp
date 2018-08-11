@@ -12,10 +12,9 @@ FilteredTableWidget::FilteredTableWidget(QWidget *parent) :
     ui->setupUi(this);
 
     alignedLayout = new ColumnAlignedLayout();
-    alignedLayout->addWidget(new QLineEdit(this));
-    alignedLayout->addWidget(new QLineEdit(this));
-    alignedLayout->addWidget(new QLineEdit(this));
-    alignedLayout->addWidget(new QLineEdit(this));
+    for (int ii = 0; ii < ui->tableWidget->horizontalHeader()->count(); ++ii) {
+        alignedLayout->addWidget(new QLineEdit(this));
+    }
     ui->widget->setLayout(alignedLayout);
     alignedLayout->setTableColumnsToTrack(ui->tableWidget->horizontalHeader());
     alignedLayout->setParent(ui->widget);
